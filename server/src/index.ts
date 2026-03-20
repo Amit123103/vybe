@@ -47,6 +47,10 @@ app.use('/api/users', userRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/notifications', notificationRoutes);
 
+app.get('/', (req, res) => {
+  res.send('<h1>🚀 Vybe API is Live & Running!</h1><p>Visit /health for status.</p>');
+});
+
 // Health Check
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Vybe API is healthy' });
