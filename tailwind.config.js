@@ -31,7 +31,7 @@ module.exports = {
       },
       fontFamily: {
         'clash-bold': ['ClashDisplay-Bold'],
-        'clash-semibold': ['ClashDisplay-SemiBold'],
+        'clash-semibold': ['ClashDisplay-Semibold'],
         'satoshi': ['Satoshi-Regular'],
         'satoshi-medium': ['Satoshi-Medium'],
         'satoshi-bold': ['Satoshi-Bold'],

@@ -1,8 +1,8 @@
 import * as SecureStore from 'expo-secure-store';
-const { MMKV } = require('react-native-mmkv');
+import { MMKV } from 'react-native-mmkv';
 
 // MMKV for non-sensitive, fast-access storage
-export const storage = new (MMKV as any)();
+export const storage = new MMKV();
 
 // Secure storage for sensitive data (tokens, etc.)
 export const secureStorage = {

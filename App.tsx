@@ -45,7 +45,14 @@ export default function App() {
   });
 
   useEffect(() => {
-    initialize();
+    const init = async () => {
+      try {
+        await initialize();
+      } catch (e) {
+        console.error('Failed to initialize auth:', e);
+      }
+    };
+    init();
   }, [initialize]);
 
   const onLayoutRootView = useCallback(async () => {
