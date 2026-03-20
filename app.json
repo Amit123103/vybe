@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Vybe",
-    "slug": "app",
+    "slug": "vybe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,10 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.vybe.app",
-      "userInterfaceStyle": "dark"
+      "userInterfaceStyle": "dark",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -40,8 +43,9 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "ebfdff2d-a852-43ed-8e82-f6abd8644367"
+        "projectId": "773be76f-3b3d-4266-9d72-c61093fdea05"
       }
-    }
+    },
+    "owner": "amitkumar23s-organization"
   }
 }
