@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Server/Backend (Do not upload to EAS)
+server/
+
+# Build artifacts
+dist/
+web-build/
+
+# Expo
+.expo/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Other
+.DS_Store
+*.pem
+npm-debug.*
+yarn-debug.*
+yarn-error.*
