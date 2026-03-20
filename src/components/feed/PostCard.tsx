@@ -32,7 +32,7 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({ post }) => {
   }, [post.id, post.isLiked, heavyImpact]);
 
   const handleCommentPress = useCallback(() => {
-    navigation.navigate('PostDetail' as never, { postId: post.id } as never);
+    (navigation as any).navigate('PostDetail', { postId: post.id });
   }, [post.id, navigation]);
 
   const handleMenuPress = useCallback(() => {
@@ -41,16 +41,13 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({ post }) => {
 
   const handleHashtagPress = useCallback(
     (tag: string) => {
-      navigation.navigate('Hashtag' as never, { tag } as never);
+      (navigation as any).navigate('Hashtag', { tag });
     },
     [navigation],
   );
 
   const handleUsernamePress = useCallback(() => {
-    navigation.navigate(
-      'UserProfile' as never,
-      { username: post.author.username } as never,
-    );
+      (navigation as any).navigate('UserProfile', { username: post.author.username });
   }, [post.author.username, navigation]);
 
   const handleReact = useCallback(

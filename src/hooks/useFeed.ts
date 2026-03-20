@@ -33,7 +33,7 @@ export const useFeed = () => {
   return {
     posts,
     isLoading: feedQuery.isLoading,
-    isRefreshing: feedQuery.isRefreshing,
+    isRefetching: feedQuery.isRefetching,
     isLoadingMore: feedQuery.isFetchingNextPage,
     hasMore: feedQuery.hasNextPage ?? false,
     error: feedQuery.error,

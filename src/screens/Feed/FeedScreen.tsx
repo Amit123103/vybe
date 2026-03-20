@@ -21,7 +21,7 @@ export const FeedScreen: React.FC = () => {
   const { colors } = useTheme();
   const navigation = useNavigation();
   const { user } = useAuth();
-  const { posts, isLoading, isRefreshing, loadMore, refresh, hasMore } = useFeed();
+  const { posts, isLoading, isRefetching, refresh, loadMore, hasMore } = useFeed();
   const { stories } = useStories();
   const unreadCount = useNotificationStore((s) => s.unreadCount);
 
@@ -97,22 +97,23 @@ export const FeedScreen: React.FC = () => {
         />
       ) : (
         <FlashList
-          data={posts}
-          renderItem={renderPost}
-          keyExtractor={(item) => item.id}
-          estimatedItemSize={500}
+          data={posts as any}
+          renderItem={renderPost as any}
+          keyExtractor={(item: any) => item.id}
+          estimatedItemSize={200}
           ListHeaderComponent={renderHeader}
           onEndReached={loadMore}
           onEndReachedThreshold={0.5}
           refreshControl={
             <RefreshControl
-              refreshing={isRefreshing ?? false}
+              refreshing={isRefetching ?? false}
               onRefresh={refresh}
               tintColor={colors.primary}
-              colors={[colors.primary]}
+              colors={['#FF3CAC', '#784BA0', '#2B86C5']}
             />
           }
           showsVerticalScrollIndicator={false}
+          {...({ estimatedItemSize: 200 } as any)}
         />
       )}
     </Screen>

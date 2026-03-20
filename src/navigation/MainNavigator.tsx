@@ -29,7 +29,7 @@ export const MainNavigator: React.FC = () => {
         listeners={({ navigation }) => ({
           tabPress: (e) => {
             e.preventDefault();
-            navigation.navigate('CreatePost');
+            navigation.getParent()?.navigate('CreatePost');
           },
         })}
       />

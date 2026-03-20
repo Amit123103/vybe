@@ -33,14 +33,14 @@ export const ProfileScreen: React.FC = () => {
         <ProfileHeader
           profile={profile}
           isOwnProfile={isOwnProfile}
-          onEditPress={() => navigation.navigate('EditProfile' as never)}
+          onEditPress={() => (navigation as any).navigate('EditProfile')}
           onFollowPress={() => followMutation.mutate(profile.id)}
           onMessagePress={() => {}}
           onFollowersPress={() =>
-            navigation.navigate('Followers' as never, { userId: profile.id } as never)
+            (navigation as any).navigate('Followers', { userId: profile.id })
           }
           onFollowingPress={() =>
-            navigation.navigate('Following' as never, { userId: profile.id } as never)
+            (navigation as any).navigate('Following', { userId: profile.id })
           }
           isFollowLoading={followMutation.isPending}
         />
@@ -54,7 +54,7 @@ export const ProfileScreen: React.FC = () => {
               title="No posts yet"
               subtitle={isOwnProfile ? 'Share your first post!' : 'This user hasn\'t posted yet'}
               actionLabel={isOwnProfile ? 'Create Post' : undefined}
-              onAction={isOwnProfile ? () => navigation.navigate('CreatePost' as never) : undefined}
+              onAction={isOwnProfile ? () => (navigation as any).navigate('CreatePost') : undefined}
             />
           )}
         </View>

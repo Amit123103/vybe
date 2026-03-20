@@ -155,7 +155,7 @@ export const CreatePostScreen: React.FC = () => {
                   ]}
                 >
                   <LinearGradient
-                    colors={bg.colors as unknown as string[]}
+                    colors={['#FF3CAC', '#784BA0', '#2B86C5'] as any}
                     style={styles.textBgGradient}
                   />
                 </TouchableOpacity>

@@ -22,6 +22,7 @@ export const Screen: React.FC<ScreenProps> = ({
   const insets = useSafeAreaInsets();
 
   const bgColor = backgroundColor || colors.bgPrimary;
+  const mappedBarStyle = statusBarStyle === 'dark' ? 'dark-content' : statusBarStyle === 'light' ? 'light-content' : undefined;
 
   return (
     <View
@@ -36,7 +37,7 @@ export const Screen: React.FC<ScreenProps> = ({
       ]}
     >
       <StatusBar
-        barStyle={statusBarStyle || (isDark ? 'light-content' : 'dark-content')}
+        barStyle={mappedBarStyle || (isDark ? 'light-content' : 'dark-content')}
         backgroundColor={bgColor}
       />
       {children}

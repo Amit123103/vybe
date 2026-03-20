@@ -1,3 +1,5 @@
+import { Post } from './post.types';
+
 export interface User {
   id: string;
   username: string;
@@ -32,6 +34,7 @@ export interface UserProfile extends User {
   isBlocked: boolean;
   mutualFollowers: UserPreview[];
   interests: string[];
+  posts: Post[];
 }
 
 export interface RegisterPayload {

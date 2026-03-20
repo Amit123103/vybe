@@ -30,7 +30,7 @@ export const PostHeader: React.FC<PostHeaderProps> = React.memo(
     }, [author.id, followMutation, mediumImpact]);
 
     const handleProfilePress = useCallback(() => {
-      navigation.navigate('UserProfile' as never, { username: author.username } as never);
+      (navigation as any).navigate('UserProfile', { username: author.username });
     }, [author.username, navigation]);
 
     return (

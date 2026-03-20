@@ -23,7 +23,7 @@ export const ProfileGrid: React.FC<ProfileGridProps> = ({ posts }) => {
       {posts.map((post) => (
         <TouchableOpacity
           key={post.id}
-          onPress={() => navigation.navigate('PostDetail' as never, { postId: post.id } as never)}
+          onPress={() => (navigation as any).navigate('PostDetail', { postId: post.id })}
           activeOpacity={0.8}
           accessibilityLabel="View post"
         >

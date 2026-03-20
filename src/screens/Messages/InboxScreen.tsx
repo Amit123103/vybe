@@ -31,12 +31,14 @@ export const InboxScreen: React.FC = () => {
       <ConversationItem
         conversation={item}
         currentUserId={user?.id || ''}
-        onPress={() =>
-          navigation.navigate('Chat' as never, {
+        onPress={() => {
+          const recipient = item.participants.find((p) => p.id !== user?.id);
+          (navigation as any).navigate('Chat', {
             conversationId: item.id,
-            recipientName: item.participants.find((p) => p.id !== user?.id)?.displayName || '',
-          } as never)
-        }
+            recipientName: recipient?.displayName || 'User',
+            userId: recipient?.id,
+          });
+        }}
       />
     ),
     [user, navigation],

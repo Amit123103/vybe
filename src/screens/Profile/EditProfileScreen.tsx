@@ -19,7 +19,6 @@ import { useUpdateProfile } from '../../hooks/useProfile';
 import { useTheme } from '../../hooks/useTheme';
 import { pickImage } from '../../utils/imageHelpers';
 import { spacing } from '../../constants/spacing';
-import { typography } from '../../constants/typography';
 
 export const EditProfileScreen: React.FC = () => {
   const { colors } = useTheme();
@@ -33,7 +32,11 @@ export const EditProfileScreen: React.FC = () => {
   const [avatar, setAvatar] = useState(user?.avatar || null);
 
   const handlePickAvatar = async () => {
-    const image = await pickImage({ width: 400, height: 400, isCircular: true });
+    const image = await pickImage({
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 0.8,
+    });
     if (image) {
       setAvatar(image.uri);
     }

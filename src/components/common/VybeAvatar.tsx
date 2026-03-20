@@ -11,7 +11,7 @@ interface VybeAvatarProps {
   name: string;
   size?: keyof typeof AVATAR_SIZES;
   showRing?: boolean;
-  ringColor?: string[];
+  ringColor?: readonly [string, string, ...string[]];
   showOnlineStatus?: boolean;
   isOnline?: boolean;
   style?: ViewStyle;

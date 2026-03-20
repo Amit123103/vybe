@@ -27,9 +27,7 @@ export const FollowersScreen: React.FC = () => {
     ({ item }: { item: UserPreview }) => (
       <TouchableOpacity
         style={styles.userItem}
-        onPress={() =>
-          navigation.navigate('Profile' as never, { username: item.username } as never)
-        }
+        onPress={() => (navigation as any).navigate('UserProfile', { username: item.username })}
       >
         <VybeAvatar uri={item.avatar} name={item.displayName} size="md" />
         <View style={styles.userInfo}>

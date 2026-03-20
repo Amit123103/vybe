@@ -14,17 +14,7 @@ import { TAB_BAR_HEIGHT, radius, spacing } from '../../constants/spacing';
 import { typography } from '../../constants/typography';
 import { VybeBadge } from '../common/VybeBadge';
 
-interface TabBarProps {
-  state: {
-    index: number;
-    routes: Array<{ key: string; name: string }>;
-  };
-  navigation: {
-    emit: (event: { type: string; target: string; canPreventDefault: boolean }) => { defaultPrevented: boolean };
-    navigate: (name: string) => void;
-  };
-  descriptors: Record<string, { options: { tabBarLabel?: string; title?: string } }>;
-}
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
 const TAB_ICONS: Record<string, { active: string; inactive: string }> = {
   FeedTab: { active: '🏠', inactive: '🏡' },
@@ -125,7 +115,7 @@ const AnimatedTab: React.FC<{
   );
 };
 
-export const TabBar: React.FC<TabBarProps> = ({ state, navigation, descriptors }) => {
+export const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation, descriptors }) => {
   const { colors } = useTheme();
   const { selectionFeedback } = useHaptics();
   const insets = useSafeAreaInsets();
@@ -158,7 +148,7 @@ export const TabBar: React.FC<TabBarProps> = ({ state, navigation, descriptors }
 
           if (!isFocused && !event.defaultPrevented) {
             if (isCreate) {
-              navigation.navigate('CreatePost' as string);
+              navigation.getParent()?.navigate('CreatePost');
             } else {
               navigation.navigate(route.name);
             }
@@ -169,7 +159,6 @@ export const TabBar: React.FC<TabBarProps> = ({ state, navigation, descriptors }
           navigation.emit({
             type: 'tabLongPress',
             target: route.key,
-            canPreventDefault: false,
           });
         };
 
